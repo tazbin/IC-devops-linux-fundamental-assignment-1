@@ -81,3 +81,34 @@ chmod 755 project
 
 # Verify the changes using appropriate commands.
 ls -al
+
+###############################################
+# User add/modify
+###############################################
+
+# Create a new user named developer.
+useradd developer
+
+# Set the home directory of the user developer to /home/developer_home.
+mkdir /home/developer_home
+usermod -d /home/developer_home -m developer
+
+# Assign the shell /bin/sh to the user developer.
+usermod -s /bin/sh developer
+
+# Verify the new user's information.
+cat /etc/passwd | grep developer
+
+# Change the username of the user developer to devuser.
+usermod -l devuser developer
+
+# Add devuser to a group named devgroup.
+usermod -aG devgroup devuser
+
+# Set the password of devuser to devpass.
+echo "devuser:devpass" | chpasswd
+
+# Verify the changes made to the user.
+cat /etc/passwd | grep developer
+groups devuser
+passwd -S devuser
