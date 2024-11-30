@@ -112,3 +112,41 @@ echo "devuser:devpass" | chpasswd
 cat /etc/passwd | grep developer
 groups devuser
 passwd -S devuser
+
+###############################################
+# Hard/Soft Link
+###############################################
+
+# Create a file named original.txt in your home directory.
+touch original.txt
+
+# Create a symbolic link named softlink.txt pointing to original.txt.
+ln -s original.txt softlink.txt
+
+# Verify the symbolic link and ensure it points to the correct file.
+ls -l softlink.txt
+
+# Delete the original file original.txt and observe the status of the symbolic link.
+rm original.txt
+ls -l softlink.txt
+
+# Create a file named datafile.txt in your home directory.
+touch datafile.txt
+
+# Create a hard link named hardlink.txt pointing to datafile.txt
+ln datafile.txt hardlink.txt
+
+# Verify the hard link and ensure it correctly points to the file.
+echo "hardlink check" > datafile.txt
+cat hardlink.txt
+
+# Check the inode of both datafile.txt and hardlink.txt
+s -li datafile.txt hardlink.txt
+
+# Delete the original file datafile.txt and observe the status of the hard link.
+rm datafile.txt
+ls -al
+cat hardlink.txt
+
+# Find all .txt files in your home directory
+find ~/ -type f -name "*.txt"
