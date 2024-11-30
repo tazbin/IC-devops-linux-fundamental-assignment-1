@@ -16,3 +16,31 @@ which bash
 
 # Find the current shell
 echo $SHELL
+
+###############################################
+# File and Directory Operations
+###############################################
+
+# Create a directory named linux_fundamentals in your home directory.
+cd ~
+mkdir linux_fundamentals
+
+# Inside linux_fundamentals, create a subdirectory named scripts.
+cd linux_fundamentals
+mkdir scripts
+
+# Create an empty file named example.txt inside the linux_fundamentals directory.
+touch example.txt
+
+# Copy example.txt to the scripts directory.
+cp example.txt scripts
+
+# Move example.txt from linux_fundamentals to linux_fundamentals/backup.
+mkdir backup
+mv example.txt backup
+
+# Change the permissions of example.txt to read and write for the owner, and read-only for the group and others.
+chmod 644 example.txt
+
+# Verify the permission changes using ls -l
+ls -l
