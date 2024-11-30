@@ -44,3 +44,20 @@ chmod 644 example.txt
 
 # Verify the permission changes using ls -l
 ls -l
+
+###############################################
+# File Modification
+###############################################
+
+# Create a file named example.txt in your home directory.
+cd ~
+touch example.txt
+
+# Change the owner of example.txt to a user named student
+chown student example.txt
+
+# Change the group of example.txt to a group named students.
+chown :students example.txt
+
+# Verify the changes using appropriate commands.
+ls -al example.txt
