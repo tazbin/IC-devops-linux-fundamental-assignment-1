@@ -61,3 +61,23 @@ chown :students example.txt
 
 # Verify the changes using appropriate commands.
 ls -al example.txt
+
+###############################################
+# Ownership
+###############################################
+
+# Create a directory named project in your home directory.
+cd ~
+mkdir project
+
+# Create a file named report.txt inside the project directory.
+touch report.txt
+
+# Set the permissions of report.txt to read and write for the owner, and read-only for the group and others.
+chmod 644 report.txt
+
+# Set the permissions of the project directory to read, write, and execute for the owner, and read and execute for the group and others
+chmod 755 project
+
+# Verify the changes using appropriate commands.
+ls -al
